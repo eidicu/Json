@@ -94,7 +94,135 @@
 
         <!-- المرشحات القابلة للتمرير -->
         <div class="filters-container">
+            <button class="filter<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البرامج والمشاريع المميزة</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .card {
+            background-color: white;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .card h5 {
+            color: #0078d4;
+            font-weight: bold;
+        }
+        .card p {
+            color: #666;
+            font-size: 14px;
+        }
+        .card a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+        /* تنسيق المرشحات القابلة للتمرير */
+        .filters-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+        .filters-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, and Opera */
+        }
+        .filter-btn {
+            display: inline-block;
+            background-color: #0078d4;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .filter-btn:hover {
+            background-color: #005a9e;
+        }
+        .filter-btn.active {
+            background-color: #004b75;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <br>
+        <h2>اختر التصميم المناسب</h2>
+
+        <!-- المرشحات القابلة للتمرير -->
+        <div class="filters-container">
             <button class="filter-btn active" onclick="filterPrograms('su')">الاستدامة</button>
+            <button class="filter-btn" onclick="filterPrograms('csr')">المسؤولية</button>
+            <button class="filter-btn" onclick="filterPrograms('stories')">قصص</button>
+            <button class="filter-btn" onclick="filterPrograms('ai')">الذكاء</button>
+            <button class="filter-btn" onclick="filterPrograms('ej')">الغباء</button>
+        </div>
+
+        <main id="program-list" class="row">
+            <!-- بطاقات البرامج سيتم إضافتها هنا بواسطة JavaScript -->
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2024 جميع الحقوق محفوظة</p>
+    </footer>
+
+    <!-- إضافة مكتبة Bootstrap JS و jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- إضافة ملفات JavaScript الخاصة بالفئات -->
+    <script src="js/programs.js"></script>
+
+    <script>
+        // عرض بطاقات الاستدامة فقط عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            filterPrograms('su');
+        });
+    </script>
+</body>
+</html>
+-btn active" onclick="filterPrograms('su')">الاستدامة</button>
             <button class="filter-btn" onclick="filterPrograms('csr')">المسؤولية</button>
             <button class="filter-btn" onclick="filterPrograms('stories')">قصص</button>
             <button class="filter-btn" onclick="filterPrograms('ai')">الذكاء</button>
