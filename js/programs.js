@@ -3,7 +3,75 @@ function fetchProgramsByCategory(category) {
     const categoryFiles = {
         su: 'data/su.json',
         csr: 'data/csr.json',
+        stories: 'data/stories.json',// دالة لجلب بيانات البرامج من ملف JSON بناءً على الفئة المحددة
+function fetchProgramsByCategory(category) {
+    const categoryFiles = {
+        su: 'data/su.json',
+        csr: 'data/csr.json',
         stories: 'data/stories.json',
+        ai: 'data/ai.json',
+        ej: 'data/ej.json'
+    };
+
+    const file = categoryFiles[category];
+
+    fetch(file)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            loadPrograms(data); // تحميل البيانات في الصفحة
+        })
+        .catch(error => {
+            console.error('Error fetching programs:', error);
+            alert('حدث خطأ أثناء تحميل البرامج. يرجى المحاولة مرة أخرى في وقت لاحق.');
+        });
+}
+
+// دالة لتحميل البرامج في الصفحة
+function loadPrograms(programs) {
+    let programHTML = '';
+
+    if (programs.length === 0) {
+        programHTML = '<div class="col-12"><p>لا توجد برامج متاحة لهذه الفئة. يرجى اختيار فئة أخرى.</p></div>';
+    } else {
+        programs.forEach(program => {
+            programHTML += createProgramCard(program);
+        });
+    }
+
+    document.getElementById('program-list').innerHTML = programHTML;
+}
+
+// دالة لإنشاء البطاقة
+function createProgramCard(program) {
+    return `
+        <div class="col-md-6 mb-4 filter-item" data-category="${program.category}">
+            <div class="card">
+                <img src="${program.image}" alt="${program.title}">
+                <div class="card-body">
+                    <h5 class="card-title">${program.title}</h5>
+                    <p class="card-text">${program.text}</p>
+                    <a href="${program.link}">استكشف المزيد</a>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// دالة لتصفية البرامج بناءً على الفئة المحددة
+function filterPrograms(category) {
+    fetchProgramsByCategory(category);
+
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(button => {
+        button.classList.toggle('active', button.getAttribute('onclick').includes(category));
+    });
+}
+
         ai: 'data/ai.json',
         ej: 'data/ej.json'
     };
