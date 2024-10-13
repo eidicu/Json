@@ -22,10 +22,21 @@ function fetchProgramsByCategory(category) {
 function loadPrograms(programs) {
     let programHTML = '';
 
-    programs.forEach(program => {
-        programHTML += createProgramCard(program);
-    });
+    // التحقق مما إذا كانت القائمة فارغة
+    if (programs.length === 0) {
+        programHTML = `
+            <div class="col-12">
+                <p class="text-center text-muted">لا توجد برامج متاحة في هذه الفئة حاليًا.</p>
+            </div>
+        `;
+    } else {
+        // إنشاء بطاقات البرامج إذا كانت البيانات متوفرة
+        programs.forEach(program => {
+            programHTML += createProgramCard(program);
+        });
+    }
 
+    // إدراج المحتوى في الصفحة
     document.getElementById('program-list').innerHTML = programHTML;
 }
 
