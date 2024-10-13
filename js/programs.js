@@ -11,11 +11,21 @@ function fetchProgramsByCategory(category) {
     const file = categoryFiles[category];
 
     fetch(file)
-        .then(response => response.json())
+        .then(response => {
+            // التأكد من أن الاستجابة كانت ناجحة
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             loadPrograms(data); // تحميل البيانات في الصفحة
         })
-        .catch(error => console.error('Error fetching programs:', error));
+        .catch(error => {
+            console.error('Error fetching programs:', error);
+            // تحميل بيانات فارغة في حالة حدوث خطأ
+            loadPrograms([]);
+        });
 }
 
 // دالة لتحميل البرامج في الصفحة
@@ -58,12 +68,14 @@ function createProgramCard(program) {
 
 // دالة لتصفية البرامج بناءً على الفئة المحددة
 function filterPrograms(category) {
-    fetchProgramsByCategory(category);
-
+    // تفعيل الزر المحدد
     const buttons = document.querySelectorAll('.filter-btn');
     buttons.forEach(button => {
         button.classList.toggle('active', button.getAttribute('onclick').includes(category));
     });
+
+    // جلب البرامج من الفئة المحددة
+    fetchProgramsByCategory(category);
 }
 
 // تحميل البرامج الخاصة بالاستدامة عند تحميل الصفحة
