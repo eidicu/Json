@@ -1,0 +1,16 @@
+[
+  {
+    "title": "الاستدامة بالأرقام",
+    "text": "شركة Microsoft ستصبح خالية من الكربون بحلول عام 2030. احصل على نظرة تفاعلية على الطرق التي تستخدمها شركتنا لتحسين تأثيرنا البيئي.",
+    "image": "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-MSFT-CP-Edge?wid=406&hei=230&fit=crop",
+    "link": "#",
+    "category": "su"
+  },
+  {
+    "title": "مشروع الزراعة المستدامة",
+    "text": "تعرف على طرق جديدة لتحسين الإنتاج الزراعي بطريقة صديقة للبيئة.",
+    "image": "https://example.com/sustainable-farming.jpg",
+    "link": "#",
+    "category": "su"
+  }
+]
