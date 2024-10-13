@@ -1,0 +1,16 @@
+[
+  {
+    "title": "مشاكل تتعلق بالغباء",
+    "text": "التحديات التي تواجه المؤسسات بسبب سوء الفهم وعدم الوعي.",
+    "image": "https://example.com/ej-image.jpg",
+    "link": "#",
+    "category": "ej"
+  },
+  {
+    "title": "حلول للأخطاء الشائعة",
+    "text": "استراتيجيات لتفادي الأخطاء التي تؤثر على الاستدامة.",
+    "image": "https://example.com/ej-solutions.jpg",
+    "link": "#",
+    "category": "ej"
+  }
+]
